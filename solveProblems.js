@@ -16,8 +16,8 @@
 
 //////////////////////////////////////////////
 // First non-repeating character
-function firstNonRepeatingLetter(s) {
-  // Add your code here
+function firstNonRepeatingLetter(string) {
+return string.split("").map((s,i,arr) => s === arr[i++]);
 }
 
-firstNonRepeatingLetter('stress')
+console.log(firstNonRepeatingLetter("stress"));
