@@ -1,4 +1,4 @@
-// const toWeirdCase = (string) =>
+// const toWeirdCase = (s) =>
 //   string
 //     .trim()
 //     .split(" ")
@@ -16,52 +16,43 @@
 
 //////////////////////////////////////////////
 // First non-repeating character
-function firstNonRepeatingLetter(string) {
-  const arr = string.split('');
-  
-  for (let i = 0; i < arr.length; i++) {
-    const chr = arr[i];
-    // console.log(chr);
-    // console.log('arr.indexOf(arr[i]) :>> ', arr.indexOf(arr[i]));
-    console.log('arr.lastIndexOf(arr[i]) :>> ', arr.lastIndexOf(arr[i]));
-    if (arr.indexOf(arr[i]) === arr.lastIndexOf(arr[i])) {
-      return arr[i]
-    }
-    
-  }
-}
-
-// function firstNotRepeatingCharacter(s) {
-        
-//   const arr = s.split("");
-
-//   for(let i = 0; i < arr.length; i++){
-//       let chr = arr[i];
-//       if( arr.indexOf(arr[i]) == arr.lastIndexOf(arr[i])){
-//           return arr[i]
-//       }            
-//   }
-  
-//   // return "_"
-// }
-
-console.log(firstNonRepeatingLetter("stress"));
-// console.log(firstNotRepeatingCharacter("stress"));
-
-// const arr = ["d", "d", "e", "e", "e", "k", "j", "j", "h"];
-// const firstNonRepeating = (arr) => {
-//   let count = 0;
-//   for (let i = 0; i < arr.length - 1; i++) {
-//     if (arr[i] !== arr[i + 1]) {
-//       console.log("arr[i]", arr[i], "arr[i + 1]", arr[i + 1]);
-//       if (!count) {
-//         return i;
-//       }
-//       count = 0;
-//     } else {
-//       count++;
+// const firstNonRepeatingLetter = (s) => {
+//   const arr = s?.split("");
+//   let char = 'none'
+//   for (let i = 0; i < arr?.length; i++) {
+//     if (s.toLowerCase().indexOf(arr[i].toLowerCase()) === s.toLowerCase().lastIndexOf(arr[i].toLowerCase())) {
+//       char = arr[i]
+//       break;
 //     }
 //   }
-//   return -1;
+//   return char
 // };
-// console.log(firstNonRepeating(arr));
+
+// console.log(firstNonRepeatingLetter(''));
+// console.log(firstNonRepeatingLetter("Mahmoud"));
+// console.log(firstNonRepeatingLetter("stress"));
+// console.log(firstNonRepeatingLetter('moonmen'));
+// console.log(firstNonRepeatingLetter('a'));
+// console.log(firstNonRepeatingLetter('sTreSS'));
+
+///////////////////////////////////////////////
+// Find The Parity Outlier
+
+function findOutlier(integers) {
+  const evenArr = [];
+  const oddArr = [];
+   integers.filter((int) => {
+    if (int % 2 !== 0) {
+     oddArr.push(int)
+    } else {
+      evenArr.push(int)
+    }
+  }).join('');
+  return oddArr.length < evenArr.length ? oddArr[0] : evenArr[0]
+}
+console.log(findOutlier([0, 1, 2]));
+console.log(findOutlier([1, 2, 3]));
+console.log(findOutlier([2, 6, 8, 10, 3]));
+console.log(findOutlier([0, 0, 3, 0, 0]));
+console.log(findOutlier([160, 3, 1719, 19, 11, 13, -21]));
+console.log(findOutlier([2, 4, 0, 100, 4, 11, 2602, 36]));
